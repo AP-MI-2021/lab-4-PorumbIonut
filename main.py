@@ -52,6 +52,7 @@ def media_aritmetica(lista, n):
 
 def test_media_aritmetica():
     assert media_aritmetica([10, -3, 25, -1, 3, 25, 18], 10) == 1
+    assert media_aritmetica([1,2,3,4,5], 3) == 0
 
 test_media_aritmetica()
 
