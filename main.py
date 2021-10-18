@@ -10,8 +10,9 @@ def citire_lista():
     return lst
 
 def is_prime(n):
+    #determina daca un numar este prim
     if n < 2:
-        return False
+        return False 
     if n == 2:
         return True
     if n % 2 == 0:
@@ -25,12 +26,14 @@ def list_without_prime_nr(lista: list[int]):
     rezult_list = []
     lg = len(lista)
     for i in range(0, lg):
-        if is_prime(lista[i]) == 0:
+        if is_prime(lista[i]) == 0: #daca numarul nu este prim il adaugam in lista
             rezult_list.append(lista[i])
-    return rezult_list
+    return rezult_list #returnam lista formata
 
 def test_list_without_prime_nr():
     assert list_without_prime_nr([8, 19, 17, 25]) == [8, 25]
+    assert list_without_prime_nr([1,2,3,4,5]) == [1, 4]
+    assert list_without_prime_nr([5, 7, 11]) == []
 
 test_list_without_prime_nr()
 
@@ -39,11 +42,11 @@ def media_aritmetica(lista, n):
     nr = 0
     sum = 0
     for i in lista:
-        sum = sum + i
-        nr = nr + 1
-    ma = sum // nr
+        sum = sum + i #calculam suma
+        nr = nr + 1 #calculam numarul de elemente
+    ma = sum // nr #aflam media aritmetica
     if ma > n:
-        return True
+        return True #in cazul in care media este mai mare decat numarul dat returnam Adevarat
     return False
 
 
@@ -53,7 +56,7 @@ def test_media_aritmetica():
 test_media_aritmetica()
 
 def divizori_proprii(n):
-
+    #aflam numarul de divizori proprii ai unui numar dat
     nrdiv = 0
     for i in range (2, n // 2 + 1):
         if n % i == 0:
@@ -63,8 +66,8 @@ def divizori_proprii(n):
 def lista_cu_divizoriproprii(lista):
     rezult_list = []
     for i in lista:
-        rezult_list.append(i)
-        rezult_list.append(divizori_proprii(i))
+        rezult_list.append(i) #adaugam in lista elementul curent 
+        rezult_list.append(divizori_proprii(i)) #adaugam in lista divizorii proprii ai el curent
     return rezult_list
 
 def test_lista_cu_divizoriproprii():
@@ -73,27 +76,28 @@ def test_lista_cu_divizoriproprii():
 test_lista_cu_divizoriproprii()
 
 def frecventa_numar(lista, el_lista):
+    #calculam frecventa unui numar 
     frec = 0
     for i in lista:
-        if i == el_lista:
+        if i == el_lista: 
             frec = frec + 1
     return frec
 
 
 def lista_tuplu(lista):
     rezult_list = []
-    lg = len(lista)
+    lg = len(lista) #aflam lungimea listei
     for i in range(0, lg):
         nr = lista[i]
-        frecv = frecventa_numar(lista, nr)
-        rezult_list.append((nr, i, frecv))
+        frecv = frecventa_numar(lista, nr) #retinem frecventa elementului curent
+        rezult_list.append((nr, i, frecv)) #adaugam in lista elementul curent, urmat de pozitia sa in lista si apoi de numarul de aparitii ale sale
     return rezult_list
     
 def test_lista_tuplu():
     assert lista_tuplu([25, 13, 26, 13]) == [(25, 0, 1), (13, 1, 2), (26, 2, 1), (13, 3, 2)]
+    assert lista_tuplu([1, 2, 2, 3, 4]) == [(1, 0, 1), (2, 1, 2), (2, 2, 2), (3, 3, 1), (4, 4, 1)]
 
 test_lista_tuplu()
-
 def main():
     shouldRun = True
     while(shouldRun):
