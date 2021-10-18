@@ -72,7 +72,7 @@ def lista_cu_divizoriproprii(lista):
 
 def test_lista_cu_divizoriproprii():
     assert lista_cu_divizoriproprii( [19, 5, 24, 12, 9]) == [19, 0, 5, 0, 24, 6, 12, 4, 9, 1]
-
+    assert lista_cu_divizoriproprii([2, 3, 8, 5, 7]) == [2, 0, 3, 0, 8, 2, 5, 0, 7, 0]
 test_lista_cu_divizoriproprii()
 
 def frecventa_numar(lista, el_lista):
